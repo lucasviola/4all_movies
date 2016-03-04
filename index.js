@@ -15,7 +15,7 @@ var router = express.Router();
 
 // Midleware between routes: Validations, exceptions, analytics..all goes here
 router.use(function (req, res, next) {
-  console.log('Action taking course...');
+  console.log('Action taking course...' + req.body.name);
   next(); // Just to make sure we go to the next routes
 });
 
