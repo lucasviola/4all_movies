@@ -69,6 +69,16 @@ router.route('/movies/:movie_id')
         res.json({message:'Movie update'});
       });
     });
+  })
+  .delete(function (req, res) {
+    Movie.remove({
+      _id: req.params.movie_id
+    }, function (err, movie) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({message: 'Movie deleted'});
+      });
   });
 
 
