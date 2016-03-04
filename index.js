@@ -52,7 +52,6 @@ router.route('/movies/:movie_id')
         res.send(err);
       }
       movie.name = req.body.name; // updates movie name
-      console.log(movie.name)
 
       // saves movie
       movie.save(function (err) {
