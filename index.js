@@ -22,7 +22,7 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function (req, res) {
-  res.json({ message: 'Welcome to our app'});
+  res.json({message: 'Welcome to our app'});
 });
 
 // Our routes
@@ -30,21 +30,36 @@ router.get('/', function (req, res) {
 // Routes for /movies
 router.route('/movies')
   .post(function (req, res) {
-
     var movie = new Movie();
     movie.name = req.body.name;
 
-    movie.save( function (err) {
+    movie.save(function (err) {
       if (err) { res.send(err);  }
       res.json({ message: 'Movie' + req.body.name + 'created!' });
     });
   })
-
   .get(function (req, res) {
     Movie.find(function (err, movies) {
       if (err) { res.send(err); }
       res.json(movies);
     })
+  })
+  .put(function (req, res) {
+    Movie.findById(req.params.movie_id, function(err, movie) {
+      if (err) {
+        res.send(err);
+      }
+      movie.name = req.body.name; // updates movie name
+      console.log(movie.name)
+
+      // saves movie
+      movie.save(function (err) {
+        if (err) {
+          res.send(err);
+        }
+        res.json({message:'Movie update'});
+      });
+    });
   });
 
 
