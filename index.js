@@ -36,8 +36,15 @@ router.route('/movies')
 
     movie.save( function (err) {
       if (err) { res.send(err);  }
-      res.json({ message: 'Movie created!' });
+      res.json({ message: 'Movie' + req.body.name + 'created!' });
     });
+  })
+
+  .get(function (req, res) {
+    Movie.find(function (err, movies) {
+      if (err) { res.send(err); }
+      res.json(movies);
+    })
   });
 
 
