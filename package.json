@@ -1,10 +1,10 @@
 {
   "name": "4all_locadora",
   "version": "1.0.0",
-  "description": "",
+  "description": "4all entry exercise",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava && xo"
   },
   "author": "Lucas Viola",
   "license": "MIT",
