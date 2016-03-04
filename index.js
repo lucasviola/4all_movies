@@ -46,6 +46,14 @@ router.route('/movies')
   });
 
 router.route('/movies/:movie_id')
+  .get(function (req, res){
+    Movie.findById(req.params.movie_id, function(err, movie) {
+      if (err) {
+        res.send(err);
+      }
+      res.json(movie);
+    });
+  })
   .put(function (req, res) {
     Movie.findById(req.params.movie_id, function(err, movie) {
       if (err) {
