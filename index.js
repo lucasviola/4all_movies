@@ -25,6 +25,20 @@ router.get('/', function (req, res) {
 
 // Our routes
 
+// Routes for /movies
+router.route('/movies')
+  .post(function (req, res) {
+
+    var movie = new Movie();
+    movie.name = req.body.name;
+
+    movie.save( function (err) {
+      if (err) { res.send(err);  }
+      res.json({ message: 'Movie created!' });
+    });
+  });
+
+
 app.use('/api', router);
 
 app.listen(port);
