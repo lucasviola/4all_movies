@@ -1,0 +1,14 @@
+{
+  "name": "4all_locadora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Lucas Viola",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.12.0"
+  }
+}
